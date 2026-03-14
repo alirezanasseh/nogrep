@@ -6,8 +6,19 @@ import type { NogrepSettings } from './types.js'
 const SETTINGS_FILE = '.claude/settings.json'
 const SETTINGS_LOCAL_FILE = '.claude/settings.local.json'
 
+interface HookEntry {
+  type: string
+  command: string
+}
+
+interface HookGroup {
+  matcher?: string
+  hooks: HookEntry[]
+}
+
 interface SettingsJson {
   nogrep?: Partial<NogrepSettings>
+  hooks?: Record<string, HookGroup[]>
   [key: string]: unknown
 }
 
@@ -37,6 +48,70 @@ export async function readSettings(projectRoot: string): Promise<NogrepSettings>
   return { enabled }
 }
 
+function buildNogrepHooks(pluginRoot: string): Record<string, HookGroup[]> {
+  return {
+    PreToolUse: [
+      {
+        matcher: 'Bash',
+        hooks: [{ type: 'command', command: `${pluginRoot}/hooks/pre-tool-use.sh` }],
+      },
+      {
+        matcher: 'Grep',
+        hooks: [{ type: 'command', command: `${pluginRoot}/hooks/pre-tool-use-grep.sh` }],
+      },
+      {
+        matcher: 'Glob',
+        hooks: [{ type: 'command', command: `${pluginRoot}/hooks/pre-tool-use-glob.sh` }],
+      },
+    ],
+    SessionStart: [
+      {
+        hooks: [{ type: 'command', command: `${pluginRoot}/hooks/session-start.sh` }],
+      },
+    ],
+    UserPromptSubmit: [
+      {
+        hooks: [{ type: 'command', command: `${pluginRoot}/hooks/prompt-submit.sh` }],
+      },
+    ],
+  }
+}
+
+function isNogrepHook(hook: HookGroup): boolean {
+  return hook.hooks.some((h) => h.command.includes('/nogrep/') || h.command.includes('nogrep'))
+}
+
+function mergeHooks(
+  existing: Record<string, HookGroup[]>,
+  nogrepHooks: Record<string, HookGroup[]>,
+): Record<string, HookGroup[]> {
+  const result = { ...existing }
+
+  for (const [event, groups] of Object.entries(nogrepHooks)) {
+    const existingGroups = result[event] ?? []
+    // Remove any old nogrep hooks first
+    const filtered = existingGroups.filter((g) => !isNogrepHook(g))
+    result[event] = [...filtered, ...groups]
+  }
+
+  return result
+}
+
+function removeNogrepHooks(
+  existing: Record<string, HookGroup[]>,
+): Record<string, HookGroup[]> {
+  const result: Record<string, HookGroup[]> = {}
+
+  for (const [event, groups] of Object.entries(existing)) {
+    const filtered = groups.filter((g) => !isNogrepHook(g))
+    if (filtered.length > 0) {
+      result[event] = filtered
+    }
+  }
+
+  return result
+}
+
 export async function writeSettings(
   projectRoot: string,
   settings: Partial<NogrepSettings>,
@@ -51,6 +126,22 @@ export async function writeSettings(
 
   const existing = await readJsonFile(filePath)
   existing.nogrep = { ...existing.nogrep, ...settings }
+
+  // Register/unregister hooks when enabling/disabling
+  if (settings.enabled !== undefined) {
+    const pluginRoot = process.env.CLAUDE_PLUGIN_ROOT
+    if (settings.enabled && pluginRoot) {
+      const nogrepHooks = buildNogrepHooks(pluginRoot)
+      existing.hooks = mergeHooks(existing.hooks ?? {}, nogrepHooks)
+    } else if (!settings.enabled) {
+      if (existing.hooks) {
+        existing.hooks = removeNogrepHooks(existing.hooks)
+        if (Object.keys(existing.hooks).length === 0) {
+          delete existing.hooks
+        }
+      }
+    }
+  }
 
   await writeFile(filePath, JSON.stringify(existing, null, 2) + '\n', 'utf-8')
 }
