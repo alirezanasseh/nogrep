@@ -1,0 +1,66 @@
+name: Build and publish to main
+
+on:
+  push:
+    branches: [develop]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+        env:
+          npm_config_ignore_scripts: true
+
+      - run: npm run build
+
+      - name: Assemble release tree
+        run: |
+          mkdir -p _release/.claude-plugin
+          mkdir -p _release/plugins/nogrep
+
+          # Marketplace metadata
+          cp .claude-plugin/marketplace.json _release/.claude-plugin/
+          cp README.md _release/
+
+          # Plugin contents (built dist, commands, templates, plugin metadata)
+          cp -r plugins/nogrep/.claude-plugin _release/plugins/nogrep/
+          cp -r plugins/nogrep/commands _release/plugins/nogrep/
+          cp -r plugins/nogrep/templates _release/plugins/nogrep/
+          cp -r plugins/nogrep/dist _release/plugins/nogrep/
+
+          # Minimal package.json (runtime deps only)
+          node -e "
+            const pkg = require('./package.json');
+            const out = {
+              name: pkg.name,
+              version: pkg.version,
+              description: pkg.description,
+              repository: pkg.repository,
+              type: pkg.type,
+              dependencies: pkg.dependencies
+            };
+            require('fs').writeFileSync('_release/package.json', JSON.stringify(out, null, 2) + '\n');
+          "
+
+      - name: Push to main
+        run: |
+          cd _release
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b main
+          git add -A
+          git commit -m "Release from ${{ github.sha }}"
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git push -f origin main

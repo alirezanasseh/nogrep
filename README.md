@@ -66,6 +66,18 @@ nogrep stores its enabled state in your project's `.claude/` directory:
 - `.claude/settings.json` — team settings (commit to repo)
 - `.claude/settings.local.json` — personal overrides (gitignored)
 
+## Contributing
+
+Source code lives on the `develop` branch. The `main` branch contains only the built plugin and is updated automatically by CI on every push to `develop`.
+
+```bash
+git clone -b develop https://github.com/alirezanasseh/nogrep
+cd nogrep
+npm install
+npm run build
+npm test
+```
+
 ## Requirements
 
 - Node.js 20+
