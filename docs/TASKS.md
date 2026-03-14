@@ -174,17 +174,17 @@
 
 **Goal:** Automatic context injection via CC hooks.
 
-- [ ] Create `hooks/pre-tool-use.sh` (see docs/SPEC.md Section 10)
+- [x] Create `hooks/pre-tool-use.sh` (see docs/SPEC.md Section 10)
   - Intercepts grep/find/rg/ag commands
   - Calls `node "${CLAUDE_PLUGIN_ROOT}/dist/query.js"` with extracted keywords
   - Injects results as `additionalContext`
-- [ ] Create `hooks/session-start.sh` (see docs/SPEC.md Section 10)
+- [x] Create `hooks/session-start.sh` (see docs/SPEC.md Section 10)
   - Checks index existence and freshness on session start
   - Calls `node "${CLAUDE_PLUGIN_ROOT}/dist/validate.js"`
-- [ ] Create `hooks/prompt-submit.sh` (see docs/SPEC.md Section 10)
+- [x] Create `hooks/prompt-submit.sh` (see docs/SPEC.md Section 10)
   - Injects relevant context for code navigation prompts
   - Calls `node "${CLAUDE_PLUGIN_ROOT}/dist/query.js"`
-- [ ] Make all `.sh` scripts executable (`chmod +x`)
+- [x] Make all `.sh` scripts executable (`chmod +x`)
 - [ ] Test: install plugin locally in CC, verify hooks fire
 
 ---
