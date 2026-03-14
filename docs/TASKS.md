@@ -43,7 +43,7 @@
 
 **Goal:** Collect language-agnostic signals from any project directory.
 
-- [ ] Create `scripts/signals.ts`
+- [x] Create `scripts/signals.ts`
   - `collectSignals(root, options)` → `SignalResult`
   - Walk directory tree (depth 4, skip: node_modules, dist, build, .git, coverage)
   - Group files by extension → `extensionMap`
@@ -54,11 +54,11 @@
   - Find `.env*` files and `config/` directories
   - Find test files matching `*.test.*`, `*.spec.*`, `*_test.*`, `test_*.py`
   - CLI interface: `node signals.js [--root <path>] [--exclude <globs>]` → JSON stdout
-- [ ] Create `tests/fixtures/nestjs-project/` — minimal NestJS project (5-10 files)
-- [ ] Create `tests/fixtures/django-project/` — minimal Django project
-- [ ] Create `tests/fixtures/react-project/` — minimal React project
-- [ ] Write `tests/signals.test.ts` — run against all 3 fixtures, assert signal shape
-- [ ] Verify: signals correctly identifies NestJS vs Django vs React
+- [x] Create `tests/fixtures/nestjs-project/` — minimal NestJS project (5-10 files)
+- [x] Create `tests/fixtures/django-project/` — minimal Django project
+- [x] Create `tests/fixtures/react-project/` — minimal React project
+- [x] Write `tests/signals.test.ts` — run against all 3 fixtures, assert signal shape
+- [x] Verify: signals correctly identifies NestJS vs Django vs React
 
 ---
 
