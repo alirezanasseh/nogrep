@@ -1,6 +1,6 @@
 {
   "name": "nogrep",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Navigable codebase index for Claude Code — stop grepping, start navigating",
   "repository": {
     "type": "git",
