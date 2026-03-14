@@ -23,7 +23,7 @@ KEYWORDS=$(echo "$PATTERN" \
 [ -z "$KEYWORDS" ] && exit 0
 
 # Query nogrep
-SCRIPT_DIR="${CLAUDE_PLUGIN_ROOT}/dist"
+SCRIPT_DIR="$(cd "$(dirname "$0")/../dist" && pwd)"
 RESULT=$(node "$SCRIPT_DIR/query.js" --keywords "$KEYWORDS" --format summary --limit 3 2>/dev/null)
 
 if [ -n "$RESULT" ]; then

@@ -9,7 +9,7 @@ if [ ! -f ".nogrep/_index.json" ]; then
   exit 0
 fi
 
-SCRIPT_DIR="${CLAUDE_PLUGIN_ROOT}/dist"
+SCRIPT_DIR="$(cd "$(dirname "$0")/../dist" && pwd)"
 STALE=$(node "$SCRIPT_DIR/validate.js" --format json 2>/dev/null | jq -r '.stale[]?.file' | head -3)
 
 if [ -n "$STALE" ]; then

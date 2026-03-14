@@ -14,7 +14,7 @@ if ! echo "$PROMPT" | grep -qiE '(where|how|which|what|find|look|show|implement|
   exit 0
 fi
 
-SCRIPT_DIR="${CLAUDE_PLUGIN_ROOT}/dist"
+SCRIPT_DIR="$(cd "$(dirname "$0")/../dist" && pwd)"
 RESULT=$(node "$SCRIPT_DIR/query.js" --question "$PROMPT" --format summary --limit 3 2>/dev/null)
 
 if [ -n "$RESULT" ]; then
