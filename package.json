@@ -1,6 +1,6 @@
 {
   "name": "nogrep",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Navigable codebase index for Claude Code — stop grepping, start navigating",
   "type": "module",
   "files": ["dist", "commands", "hooks", "scripts", "templates", "docs"],
