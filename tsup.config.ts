@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: ['scripts/*.ts'],
-  outDir: 'plugin/dist',
+  outDir: 'plugins/nogrep/dist',
   format: ['esm'],
   dts: true,
   sourcemap: true,
