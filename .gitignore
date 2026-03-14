@@ -1,5 +1,5 @@
 node_modules/
-dist/
+plugin/dist/
 *.tsbuildinfo
 .DS_Store
 .claude/settings.local.json

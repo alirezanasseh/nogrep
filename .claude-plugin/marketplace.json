@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "nogrep",
-      "source": ".",
+      "source": "./plugin",
       "description": "Navigable codebase index for Claude Code — stop grepping, start navigating",
       "homepage": "https://github.com/alirezanasseh/nogrep",
       "repository": "https://github.com/alirezanasseh/nogrep",
