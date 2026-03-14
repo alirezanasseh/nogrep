@@ -11,24 +11,16 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '24'
           cache: npm
-          registry-url: https://registry.npmjs.org
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm ci
-        env:
-          npm_config_ignore_scripts: true
-
       - run: npm run build
-
       - run: npm test
-
-      - run: npm publish --provenance --access public
+      - run: npm publish
