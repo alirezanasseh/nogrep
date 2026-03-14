@@ -7,7 +7,7 @@ Answer the user's question using the nogrep codebase index. Follow these steps e
 ## Step 1 — Query the index
 
 ```bash
-node "$(dirname "${CLAUDE_PLUGIN_ROOT}")/dist/query.js" --question "$ARGUMENTS" --format summary --limit 5 2>/dev/null || node "${CLAUDE_PLUGIN_ROOT}/dist/query.js" --question "$ARGUMENTS" --format summary --limit 5
+node "${CLAUDE_PLUGIN_ROOT}/dist/query.js" --question "$ARGUMENTS" --format summary --limit 5
 ```
 
 If no results are found, tell the user and suggest `/nogrep:init` if the index hasn't been created yet. Stop here.
