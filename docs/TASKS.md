@@ -85,7 +85,7 @@
 
 **Goal:** Write all `.nogrep/` files from structured input.
 
-- [ ] Create `scripts/write.ts`
+- [x] Create `scripts/write.ts`
   - Accepts JSON via stdin or `--input <file>` with NodeResult[] + StackResult
   - `writeContextNodes(nodes, outputDir)` — generates markdown with frontmatter (YAML)
     - Creates subdirectories: `domains/`, `architecture/`, `flows/`, `entities/`
@@ -97,7 +97,7 @@
   - `buildRegistry(nodes)` → writes `_registry.json`
   - `patchClaudeMd(projectRoot)` — appends navigation instructions
     - Checks for `<!-- nogrep -->` marker to avoid duplicate patching
-- [ ] Create `templates/claude-md-patch.md`:
+- [x] Create `templates/claude-md-patch.md`:
   ```markdown
   <!-- nogrep -->
   ## Code Navigation
@@ -108,8 +108,8 @@
   read those files before exploring source.
   <!-- /nogrep -->
   ```
-- [ ] Write `tests/writer.test.ts` — write to temp dirs, verify file contents and frontmatter
-- [ ] Verify: running writers on fixture data produces valid markdown with parseable frontmatter
+- [x] Write `tests/writer.test.ts` — write to temp dirs, verify file contents and frontmatter
+- [x] Verify: running writers on fixture data produces valid markdown with parseable frontmatter
 
 ---
 
