@@ -1,0 +1,29 @@
+{
+  "name": "nogrep",
+  "version": "1.0.0",
+  "description": "Navigable codebase index for Claude Code — stop grepping, start navigating",
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "prepublish": "npm run build && npm test"
+  },
+  "files": [
+    "dist/",
+    "commands/",
+    "hooks/",
+    "templates/",
+    "plugin.json"
+  ],
+  "dependencies": {
+    "glob": "^11.0.0",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0",
+    "tsup": "^8.0.0",
+    "vitest": "^2.0.0"
+  }
+}
