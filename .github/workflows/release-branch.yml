@@ -37,6 +37,7 @@ jobs:
           cp -r plugins/nogrep/.claude-plugin _release/plugins/nogrep/
           cp -r plugins/nogrep/commands _release/plugins/nogrep/
           cp -r plugins/nogrep/scripts _release/plugins/nogrep/
+          cp plugins/nogrep/package.json _release/plugins/nogrep/
 
           # Minimal package.json (runtime deps only)
           node -e "
