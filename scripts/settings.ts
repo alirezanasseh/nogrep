@@ -66,11 +66,13 @@ function buildNogrepHooks(pluginRoot: string): Record<string, HookGroup[]> {
     ],
     SessionStart: [
       {
+        matcher: '',
         hooks: [{ type: 'command', command: `${pluginRoot}/hooks/session-start.sh` }],
       },
     ],
     UserPromptSubmit: [
       {
+        matcher: '',
         hooks: [{ type: 'command', command: `${pluginRoot}/hooks/prompt-submit.sh` }],
       },
     ],
