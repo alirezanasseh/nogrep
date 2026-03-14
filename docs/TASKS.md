@@ -66,7 +66,7 @@
 
 **Goal:** Reduce source files to signatures only, language-agnostic.
 
-- [ ] Create `scripts/trim.ts`
+- [x] Create `scripts/trim.ts`
   - `trimCluster(paths: string[], projectRoot: string)` → `string`
   - For each file in the cluster's src_paths:
     - Read file content
@@ -76,8 +76,8 @@
     - Max 300 lines total across all files — truncate least important files first
   - Strategy: regex-based (simple, universal — not perfect but good enough)
   - CLI interface: `node trim.js <path1> <path2> ...` → trimmed output to stdout
-- [ ] Write `tests/trim.test.ts` — test against TypeScript, Python, Java snippet fixtures
-- [ ] Verify: trimmed output is ~30-50% of original size, signatures intact
+- [x] Write `tests/trim.test.ts` — test against TypeScript, Python, Java snippet fixtures
+- [x] Verify: trimmed output is ~30-50% of original size, signatures intact
 
 ---
 
