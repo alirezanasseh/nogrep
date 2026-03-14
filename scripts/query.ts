@@ -279,12 +279,14 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch((err: unknown) => {
-  if (err instanceof NogrepError) {
-    process.stderr.write(JSON.stringify({ error: err.message, code: err.code }) + '\n')
-  } else {
-    const message = err instanceof Error ? err.message : String(err)
-    process.stderr.write(JSON.stringify({ error: message }) + '\n')
-  }
-  process.exitCode = 1
-})
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((err: unknown) => {
+    if (err instanceof NogrepError) {
+      process.stderr.write(JSON.stringify({ error: err.message, code: err.code }) + '\n')
+    } else {
+      const message = err instanceof Error ? err.message : String(err)
+      process.stderr.write(JSON.stringify({ error: message }) + '\n')
+    }
+    process.exitCode = 1
+  })
+}

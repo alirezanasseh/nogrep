@@ -231,7 +231,9 @@ async function main(): Promise<void> {
   process.stdout.write(JSON.stringify(result, null, 2))
 }
 
-main().catch(err => {
-  process.stderr.write(JSON.stringify({ error: String(err) }))
-  process.exit(1)
-})
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch(err => {
+    process.stderr.write(JSON.stringify({ error: String(err) }))
+    process.exit(1)
+  })
+}

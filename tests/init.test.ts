@@ -341,7 +341,7 @@ describe('/nogrep:init pipeline integration', () => {
     const inputFile = join(projectDir, '_write_input.json')
     await writeFile(inputFile, JSON.stringify(writeInput), 'utf-8')
 
-    const distPath = join(import.meta.dirname, '..', 'plugin', 'dist', 'write.js')
+    const distPath = join(import.meta.dirname, '..', 'plugins', 'nogrep', 'dist', 'write.js')
     await execFileAsync(
       'node',
       [distPath, '--input', inputFile, '--root', projectDir],
@@ -366,7 +366,7 @@ describe('/nogrep:init pipeline integration', () => {
   // --- signals.js CLI ---
 
   it('Step 1 — signals.js CLI outputs valid JSON to stdout', async () => {
-    const distPath = join(import.meta.dirname, '..', 'plugin', 'dist', 'signals.js')
+    const distPath = join(import.meta.dirname, '..', 'plugins', 'nogrep', 'dist', 'signals.js')
     const { stdout } = await execFileAsync('node', [distPath, '--root', projectDir])
 
     const signals = JSON.parse(stdout)
@@ -380,7 +380,7 @@ describe('/nogrep:init pipeline integration', () => {
   // --- trim.js CLI ---
 
   it('Step 3a — trim.js CLI outputs trimmed source to stdout', async () => {
-    const distPath = join(import.meta.dirname, '..', 'plugin', 'dist', 'trim.js')
+    const distPath = join(import.meta.dirname, '..', 'plugins', 'nogrep', 'dist', 'trim.js')
     const { stdout } = await execFileAsync(
       'node',
       [distPath, 'src/billing/billing.service.ts'],
