@@ -9,13 +9,13 @@
 
 **Goal:** Buildable TypeScript project with plugin manifest.
 
-- [ ] Create `package.json` with dependencies: `glob`, `gray-matter`, `js-yaml`
-- [ ] Create `package.json` devDependencies: `typescript`, `tsup`, `vitest`, `@types/node`
-- [ ] Create `tsconfig.json` (see docs/CONVENTIONS.md)
-- [ ] Create `tsup.config.ts` — builds `scripts/` → `dist/`, ESM, declaration files
-- [ ] Create `scripts/types.ts` — all types from docs/ARCHITECTURE.md key types section
-- [ ] Create `plugin.json` — CC plugin manifest with hook declarations
-- [ ] Verify: `npm run build` compiles successfully
+- [x] Create `package.json` with dependencies: `glob`, `gray-matter`, `js-yaml`
+- [x] Create `package.json` devDependencies: `typescript`, `tsup`, `vitest`, `@types/node`
+- [x] Create `tsconfig.json` (see docs/CONVENTIONS.md)
+- [x] Create `tsup.config.ts` — builds `scripts/` → `dist/`, ESM, declaration files
+- [x] Create `scripts/types.ts` — all types from docs/ARCHITECTURE.md key types section
+- [x] Create `plugin.json` — CC plugin manifest with hook declarations
+- [x] Verify: `npm run build` compiles successfully
 
 ---
 
