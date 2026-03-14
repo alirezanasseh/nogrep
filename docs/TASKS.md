@@ -23,18 +23,18 @@
 
 **Goal:** Read/write nogrep settings from `.claude/settings.json` and `.claude/settings.local.json`.
 
-- [ ] Create `scripts/settings.ts`
+- [x] Create `scripts/settings.ts`
   - `readSettings(projectRoot)` — reads both files, local takes precedence over shared
   - `writeSettings(projectRoot, settings, local?)` — writes to shared or local file
   - Creates `.claude/` dir if it doesn't exist
   - CLI interface: `node settings.js --set enabled=true [--local]` / `node settings.js --get`
-- [ ] Create `commands/on.md` slash command
-  - Runs `scripts/settings.js --set enabled=true`
+- [x] Create `commands/on.md` slash command
+  - Runs `node "${CLAUDE_PLUGIN_ROOT}/dist/settings.js" --set enabled=true`
   - Checks if `.nogrep/_index.json` exists
   - If missing: suggests running `/nogrep:init`
-- [ ] Create `commands/off.md` slash command
-  - Runs `scripts/settings.js --set enabled=false`
-- [ ] Write `tests/settings.test.ts` — test merge logic, local precedence, file creation
+- [x] Create `commands/off.md` slash command
+  - Runs `node "${CLAUDE_PLUGIN_ROOT}/dist/settings.js" --set enabled=false`
+- [x] Write `tests/settings.test.ts` — test merge logic, local precedence, file creation
 - [ ] Verify: `/nogrep:on` and `/nogrep:off` work in CC
 
 ---
@@ -118,12 +118,12 @@
 **Goal:** `/nogrep:init` orchestrates the full pipeline with Claude doing the AI work.
 
 - [ ] Create `commands/init.md`
-  - Step 1: Run `node scripts/signals.js --root .` → collect signals
+  - Step 1: Run `node "${CLAUDE_PLUGIN_ROOT}/dist/signals.js" --root .` → collect signals
   - Step 2: Embed Phase 2 prompt — Claude analyzes signals, produces StackResult JSON
-  - Step 3: For each domain cluster, embed Phase 3 prompt — Claude reads trimmed source (via `node scripts/trim.js`), produces NodeResult JSON
+  - Step 3: For each domain cluster, embed Phase 3 prompt — Claude reads trimmed source (via `node "${CLAUDE_PLUGIN_ROOT}/dist/trim.js"`), produces NodeResult JSON
   - Step 4: Claude detects flows (clusters touching 3+ domains or named with flow keywords)
-  - Step 5: Run `node scripts/write.js` with all results piped as JSON stdin
-  - Step 6: Run `node scripts/settings.js --set enabled=true`
+  - Step 5: Run `node "${CLAUDE_PLUGIN_ROOT}/dist/write.js"` with all results piped as JSON stdin
+  - Step 6: Run `node "${CLAUDE_PLUGIN_ROOT}/dist/settings.js" --set enabled=true`
   - See docs/SPEC.md Section 13 for prompt templates
 - [ ] Test: run `/nogrep:init` in CC on a fixture project, inspect `.nogrep/` output
 
@@ -145,9 +145,9 @@
     - Sort by score descending, return top N (default 5)
   - CLI interface: `node query.js --tags <tags> | --keywords <words> | --question <text> [--format paths|json|summary] [--limit N]`
   - Throws `NogrepError('NO_INDEX')` if `_index.json` missing
-- [ ] Create `commands/query.md` slash command — runs `node scripts/query.js --question "$ARGUMENTS"`
+- [ ] Create `commands/query.md` slash command — runs `node "${CLAUDE_PLUGIN_ROOT}/dist/query.js" --question "$ARGUMENTS"`
 - [ ] Write `tests/query.test.ts` — test extraction and resolution
-- [ ] Verify: `node scripts/query.js --question "how does stripe work"` returns billing context file
+- [ ] Verify: `node dist/query.js --question "how does stripe work"` returns billing context file
 
 ---
 
@@ -165,7 +165,7 @@
   - Guides Claude through: git diff → map to affected nodes → re-analyze → write updates
   - Preserves `## Manual Notes` section
 - [ ] Create `commands/status.md` slash command
-  - Runs `node scripts/validate.js` and shows node counts, freshness summary
+  - Runs `node "${CLAUDE_PLUGIN_ROOT}/dist/validate.js"` and shows node counts, freshness summary
 - [ ] Write `tests/validate.test.ts` — test staleness detection
 
 ---
@@ -176,14 +176,14 @@
 
 - [ ] Create `hooks/pre-tool-use.sh` (see docs/SPEC.md Section 10)
   - Intercepts grep/find/rg/ag commands
-  - Calls `node scripts/query.js` with extracted keywords
+  - Calls `node "${CLAUDE_PLUGIN_ROOT}/dist/query.js"` with extracted keywords
   - Injects results as `additionalContext`
 - [ ] Create `hooks/session-start.sh` (see docs/SPEC.md Section 10)
   - Checks index existence and freshness on session start
-  - Calls `node scripts/validate.js`
+  - Calls `node "${CLAUDE_PLUGIN_ROOT}/dist/validate.js"`
 - [ ] Create `hooks/prompt-submit.sh` (see docs/SPEC.md Section 10)
   - Injects relevant context for code navigation prompts
-  - Calls `node scripts/query.js`
+  - Calls `node "${CLAUDE_PLUGIN_ROOT}/dist/query.js"`
 - [ ] Make all `.sh` scripts executable (`chmod +x`)
 - [ ] Test: install plugin locally in CC, verify hooks fire
 

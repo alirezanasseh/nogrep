@@ -107,7 +107,7 @@ Implement in this exact order — each step is testable before moving on:
 ### Step 6 — Init Slash Command
 - `commands/init.md` — orchestrates the full pipeline
 - Embeds Phase 2 + Phase 3 prompts (Claude does the AI work)
-- Calls `scripts/signals.js` for data, `scripts/write.js` for output
+- Calls `dist/signals.js` for data, `dist/write.js` for output via `${CLAUDE_PLUGIN_ROOT}`
 
 ### Step 7 — Query System
 - `scripts/query.ts` — extractor + resolver

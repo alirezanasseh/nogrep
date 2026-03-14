@@ -571,7 +571,7 @@ KEYWORDS=$(echo "$COMMAND" \
 [ -z "$KEYWORDS" ] && exit 0
 
 # Query nogrep
-SCRIPT_DIR="$(dirname "$0")/../scripts"
+SCRIPT_DIR="${CLAUDE_PLUGIN_ROOT}/dist"
 RESULT=$(node "$SCRIPT_DIR/query.js" --keywords "$KEYWORDS" --format summary --limit 3 2>/dev/null)
 
 if [ -n "$RESULT" ]; then
@@ -601,7 +601,7 @@ if [ ! -f ".nogrep/_index.json" ]; then
   exit 0
 fi
 
-SCRIPT_DIR="$(dirname "$0")/../scripts"
+SCRIPT_DIR="${CLAUDE_PLUGIN_ROOT}/dist"
 STALE=$(node "$SCRIPT_DIR/validate.js" --format json 2>/dev/null | jq -r '.stale[]?.file' | head -3)
 
 if [ -n "$STALE" ]; then
@@ -636,7 +636,7 @@ if ! echo "$PROMPT" | grep -qiE '(where|how|which|what|find|look|show|implement|
   exit 0
 fi
 
-SCRIPT_DIR="$(dirname "$0")/../scripts"
+SCRIPT_DIR="${CLAUDE_PLUGIN_ROOT}/dist"
 RESULT=$(node "$SCRIPT_DIR/query.js" --question "$PROMPT" --format summary --limit 3 2>/dev/null)
 
 if [ -n "$RESULT" ]; then
@@ -655,32 +655,32 @@ exit 0
 Each command file in `commands/` is a markdown prompt that guides Claude through the operation. Unlike simple shell wrappers, these are rich prompts — Claude does the AI work directly.
 
 **`commands/init.md`** — The most important command. Contains:
-- Instructions to run `scripts/signals.js` to collect Phase 1 data
+- Instructions to run `node "${CLAUDE_PLUGIN_ROOT}/dist/signals.js" --root .` to collect Phase 1 data
 - The Phase 2 prompt (stack detection) — Claude analyzes signals directly
 - The Phase 3 prompt (cluster analysis) — Claude analyzes each cluster
-- Instructions to run `scripts/write.js` to generate structured output
+- Instructions to run `node "${CLAUDE_PLUGIN_ROOT}/dist/write.js"` to generate structured output
 - Instructions to patch CLAUDE.md and write settings
 
 **`commands/update.md`** — Guides Claude through:
 - Running `git diff origin/main --name-only` to find changed files
 - Mapping changed files to affected nodes via `_registry.json`
 - Re-analyzing affected clusters
-- Running `scripts/write.js` to update nodes (preserving Manual Notes)
+- Running `node "${CLAUDE_PLUGIN_ROOT}/dist/write.js"` to update nodes (preserving Manual Notes)
 
 **`commands/on.md`** — Enable nogrep:
-- Run `scripts/settings.js --set enabled=true`
+- Run `node "${CLAUDE_PLUGIN_ROOT}/dist/settings.js" --set enabled=true`
 - Check if `.nogrep/_index.json` exists
 - If missing, suggest running `/nogrep:init`
 
 **`commands/off.md`** — Disable nogrep:
-- Run `scripts/settings.js --set enabled=false`
+- Run `node "${CLAUDE_PLUGIN_ROOT}/dist/settings.js" --set enabled=false`
 
 **`commands/status.md`** — Show index health:
-- Run `scripts/validate.js --format text`
+- Run `node "${CLAUDE_PLUGIN_ROOT}/dist/validate.js" --format text`
 - Show node counts by category, freshness summary
 
 **`commands/query.md`** — Manual index lookup:
-- Run `scripts/query.js --question "$ARGUMENTS"`
+- Run `node "${CLAUDE_PLUGIN_ROOT}/dist/query.js" --question "$ARGUMENTS"`
 
 ---
 

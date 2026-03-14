@@ -70,10 +70,12 @@ Read/write `.claude/settings.json` and `.claude/settings.local.json`. Handles me
 
 ## Data Flow: `/nogrep:init`
 
+> `$PLUGIN` = `${CLAUDE_PLUGIN_ROOT}` — the absolute path to the installed plugin directory.
+
 ```
 Slash command: init.md (Claude orchestrates)
   │
-  ├─→ Bash: node scripts/signals.js    → SignalResult (JSON stdout)
+  ├─→ Bash: node $PLUGIN/dist/signals.js    → SignalResult (JSON stdout)
   │
   ├─→ Claude analyzes signals           → StackResult
   │
@@ -82,7 +84,7 @@ Slash command: init.md (Claude orchestrates)
   │
   ├─→ Claude detects flows              → FlowResult[]
   │
-  └─→ Bash: node scripts/write.js      (receives JSON stdin)
+  └─→ Bash: node $PLUGIN/dist/write.js      (receives JSON stdin)
         writes .nogrep/domains/*.md etc
         writes .nogrep/_index.json
         writes .nogrep/_registry.json
@@ -98,20 +100,20 @@ Slash command: init.md (Claude orchestrates)
 User types prompt
   │
   └─→ prompt-submit.sh
-        node scripts/query.js --question "$PROMPT"
+        node $PLUGIN/dist/query.js --question "$PROMPT"
         → injects additionalContext
 
 CC decides to run grep
   │
   └─→ pre-tool-use.sh (PreToolUse hook)
         extracts keywords from grep command
-        node scripts/query.js --keywords "$KEYWORDS"
+        node $PLUGIN/dist/query.js --keywords "$KEYWORDS"
         → injects additionalContext
 
 CC starts session
   │
   └─→ session-start.sh (SessionStart hook)
-        node scripts/validate.js
+        node $PLUGIN/dist/validate.js
         → injects staleness warning if needed
 ```
 
