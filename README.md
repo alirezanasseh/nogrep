@@ -16,14 +16,6 @@ In Claude Code:
 4. Choose the installation scope (you, your team, etc.) and hit Enter
 5. Type `/reload-plugins` to activate
 
-For local development/testing:
-
-```bash
-git clone https://github.com/alirezanasseh/nogrep.git
-cd nogrep && npm install && npm run build
-claude --plugin-dir ./nogrep
-```
-
 ## Quick start
 
 1. Open your project in Claude Code
