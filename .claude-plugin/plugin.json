@@ -1,0 +1,8 @@
+{
+  "name": "nogrep",
+  "version": "1.0.0",
+  "description": "Navigable codebase index for Claude Code — stop grepping, start navigating",
+  "author": {
+    "name": "Alireza"
+  }
+}
