@@ -133,7 +133,7 @@
 
 **Goal:** Fast index lookup without AI.
 
-- [ ] Create `scripts/query.ts`
+- [x] Create `scripts/query.ts`
   - `extractTerms(question, taxonomy)` → `{ tags, keywords }`
     - Split question into words, lowercase
     - Match against taxonomy domain/tech values → tags
@@ -145,8 +145,8 @@
     - Sort by score descending, return top N (default 5)
   - CLI interface: `node query.js --tags <tags> | --keywords <words> | --question <text> [--format paths|json|summary] [--limit N]`
   - Throws `NogrepError('NO_INDEX')` if `_index.json` missing
-- [ ] Create `commands/query.md` slash command — runs `node "${CLAUDE_PLUGIN_ROOT}/dist/query.js" --question "$ARGUMENTS"`
-- [ ] Write `tests/query.test.ts` — test extraction and resolution
+- [x] Create `commands/query.md` slash command — runs `node "${CLAUDE_PLUGIN_ROOT}/dist/query.js" --question "$ARGUMENTS"`
+- [x] Write `tests/query.test.ts` — test extraction and resolution
 - [ ] Verify: `node dist/query.js --question "how does stripe work"` returns billing context file
 
 ---
