@@ -19,7 +19,7 @@ RESULT=$(node "$SCRIPT_DIR/query.js" --question "$PROMPT" --format summary --lim
 
 if [ -n "$RESULT" ]; then
   jq -n \
-    --arg ctx "nogrep context for your question:\n\n$RESULT\n\nRead these files first before exploring source." \
+    --arg ctx "IMPORTANT — nogrep codebase index matched these context files for your question:\n\n$RESULT\n\nYou MUST read these .nogrep/ context files FIRST using the Read tool before doing any exploration, searching, or grepping. These files contain curated domain maps with file paths, public API surfaces, and relationships that directly answer navigation questions. Do NOT use the Explore/Agent tool or broad file searches when nogrep context files are available — read them and use the paths listed inside." \
     '{ additionalContext: $ctx }'
 fi
 
