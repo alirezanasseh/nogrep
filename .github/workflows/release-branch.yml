@@ -33,10 +33,9 @@ jobs:
           cp .claude-plugin/marketplace.json _release/.claude-plugin/
           cp README.md _release/
 
-          # Plugin contents (built dist, commands, templates, plugin metadata)
+          # Plugin contents (built scripts, commands, plugin metadata)
           cp -r plugins/nogrep/.claude-plugin _release/plugins/nogrep/
           cp -r plugins/nogrep/commands _release/plugins/nogrep/
-          cp -r plugins/nogrep/templates _release/plugins/nogrep/
           cp -r plugins/nogrep/scripts _release/plugins/nogrep/
 
           # Minimal package.json (runtime deps only)

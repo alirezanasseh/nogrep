@@ -190,7 +190,6 @@ This will:
 - Create `.nogrep/` directory with all context node files
 - Build `_index.json` (reverse index)
 - Build `_registry.json` (source path → context file mapping)
-- Patch `CLAUDE.md` with navigation instructions
 
 ---
 
@@ -235,7 +234,7 @@ Tell the user:
 > - **Index:** `.nogrep/_index.json` — reverse lookup by tags, keywords, and paths
 > - **Registry:** `.nogrep/_registry.json` — maps source paths to context files
 >
-> nogrep is now enabled. Hooks will automatically inject context when you search.
+> nogrep is now enabled.
 >
 > To update after code changes: `/nogrep:update`
 > To check index health: `/nogrep:status`

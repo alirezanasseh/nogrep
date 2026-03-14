@@ -1,5 +1,5 @@
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises'
-import { join, resolve, dirname } from 'node:path'
+import { join, resolve } from 'node:path'
 import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import { createHash } from 'node:crypto'
@@ -219,48 +219,6 @@ export function buildRegistry(nodes: NodeResult[]): RegistryJson {
   return { mappings }
 }
 
-// --- Patch CLAUDE.md ---
-
-export async function patchClaudeMd(projectRoot: string): Promise<void> {
-  const claudeMdPath = join(projectRoot, 'CLAUDE.md')
-  const patchPath = join(dirname(import.meta.url.replace('file://', '')), '..', 'templates', 'claude-md-patch.md')
-
-  let patch: string
-  try {
-    patch = await readFile(patchPath, 'utf-8')
-  } catch {
-    // Fallback: inline the patch content
-    patch = [
-      '<!-- nogrep -->',
-      '## Code Navigation',
-      '',
-      'This project uses [nogrep](https://github.com/techtulp/nogrep).',
-      'Context files in `.nogrep/` are a navigable index of this codebase.',
-      'When you see nogrep results injected into your context, trust them —',
-      'read those files before exploring source.',
-      '<!-- /nogrep -->',
-    ].join('\n') + '\n'
-  }
-
-  let existing = ''
-  try {
-    existing = await readFile(claudeMdPath, 'utf-8')
-  } catch {
-    // File doesn't exist
-  }
-
-  // Check for existing nogrep marker
-  if (existing.includes('<!-- nogrep -->')) {
-    return
-  }
-
-  const newContent = existing
-    ? existing.trimEnd() + '\n\n' + patch
-    : patch
-
-  await writeFile(claudeMdPath, newContent, 'utf-8')
-}
-
 // --- Write all outputs ---
 
 interface WriteInput {
@@ -302,8 +260,6 @@ async function writeAll(input: WriteInput, projectRoot: string): Promise<void> {
     'utf-8',
   )
 
-  // Patch CLAUDE.md
-  await patchClaudeMd(projectRoot)
 }
 
 // --- CLI interface ---

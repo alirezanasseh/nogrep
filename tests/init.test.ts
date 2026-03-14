@@ -7,7 +7,7 @@ import { promisify } from 'util'
 import matter from 'gray-matter'
 import { collectSignals } from '../scripts/signals.js'
 import { trimCluster } from '../scripts/trim.js'
-import { writeContextNodes, buildIndex, buildRegistry, patchClaudeMd } from '../scripts/write.js'
+import { writeContextNodes, buildIndex, buildRegistry } from '../scripts/write.js'
 import type { NodeResult, StackResult } from '../scripts/types.js'
 
 const execFileAsync = promisify(execFile)
@@ -213,9 +213,6 @@ describe('/nogrep:init pipeline integration', () => {
       'utf-8',
     )
 
-    // Patch CLAUDE.md
-    await patchClaudeMd(projectDir)
-
     // ---- VERIFY OUTPUT ----
 
     // 1. Context node files exist with correct frontmatter
@@ -301,11 +298,6 @@ describe('/nogrep:init pipeline integration', () => {
     expect(taxonomyJson.dynamic.tech).toContain('stripe')
     expect(taxonomyJson.custom).toEqual({})
 
-    // 7. CLAUDE.md patched
-    const claudeMd = await readFile(join(projectDir, 'CLAUDE.md'), 'utf-8')
-    expect(claudeMd).toContain('<!-- nogrep -->')
-    expect(claudeMd).toContain('Code Navigation')
-    expect(claudeMd).toContain('<!-- /nogrep -->')
   })
 
   // --- write.js CLI (Step 5 via stdin pipe) ---

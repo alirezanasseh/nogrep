@@ -3,7 +3,7 @@ import { mkdtemp, readFile, writeFile, mkdir, rm } from 'fs/promises'
 import { join } from 'path'
 import { tmpdir } from 'os'
 import matter from 'gray-matter'
-import { writeContextNodes, buildIndex, buildRegistry, patchClaudeMd } from '../scripts/write.js'
+import { writeContextNodes, buildIndex, buildRegistry } from '../scripts/write.js'
 import type { NodeResult, StackResult } from '../scripts/types.js'
 
 function makeNode(overrides: Partial<NodeResult> = {}): NodeResult {
@@ -285,44 +285,3 @@ describe('buildRegistry', () => {
   })
 })
 
-describe('patchClaudeMd', () => {
-  let tmpDir: string
-
-  beforeEach(async () => {
-    tmpDir = await mkdtemp(join(tmpdir(), 'nogrep-claude-'))
-  })
-
-  it('should create CLAUDE.md if it does not exist', async () => {
-    await patchClaudeMd(tmpDir)
-
-    const content = await readFile(join(tmpDir, 'CLAUDE.md'), 'utf-8')
-    expect(content).toContain('<!-- nogrep -->')
-    expect(content).toContain('## Code Navigation')
-    expect(content).toContain('<!-- /nogrep -->')
-  })
-
-  it('should append to existing CLAUDE.md', async () => {
-    await writeFile(join(tmpDir, 'CLAUDE.md'), '# My Project\n\nSome content.\n', 'utf-8')
-
-    await patchClaudeMd(tmpDir)
-
-    const content = await readFile(join(tmpDir, 'CLAUDE.md'), 'utf-8')
-    expect(content).toContain('# My Project')
-    expect(content).toContain('Some content.')
-    expect(content).toContain('<!-- nogrep -->')
-  })
-
-  it('should not duplicate patch if marker already exists', async () => {
-    await writeFile(
-      join(tmpDir, 'CLAUDE.md'),
-      '# Project\n\n<!-- nogrep -->\n## Code Navigation\n<!-- /nogrep -->\n',
-      'utf-8',
-    )
-
-    await patchClaudeMd(tmpDir)
-
-    const content = await readFile(join(tmpDir, 'CLAUDE.md'), 'utf-8')
-    const markerCount = (content.match(/<!-- nogrep -->/g) ?? []).length
-    expect(markerCount).toBe(1)
-  })
-})
