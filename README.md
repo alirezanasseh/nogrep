@@ -9,10 +9,10 @@ A Claude Code plugin that gives AI agents a navigable index of any codebase, so 
 ## Install
 
 ```bash
-claude plugin add nogrep
+claude plugin add github:alirezanasseh/nogrep
 ```
 
-Or install from source:
+Or install from a local clone:
 
 ```bash
 git clone https://github.com/alirezanasseh/nogrep.git
