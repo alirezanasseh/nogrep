@@ -1,0 +1,12 @@
+{
+  "static": {
+    "layer": ["presentation", "business", "data", "infrastructure", "cross-cutting"],
+    "concern": ["security", "performance", "caching", "validation", "error-handling", "idempotency", "observability"],
+    "type": ["module", "flow", "entity", "integration", "config", "ui", "test"]
+  },
+  "dynamic": {
+    "domain": ["indexing", "analysis", "plugin", "testing"],
+    "tech": ["glob", "gray-matter", "js-yaml", "vitest", "tsup"]
+  },
+  "custom": {}
+}

@@ -1,0 +1,49 @@
+{
+  "mappings": [
+    {
+      "glob": "scripts/signals.ts",
+      "contextFile": ".nogrep/domains/indexing-pipeline.md",
+      "watch": true
+    },
+    {
+      "glob": "scripts/write.ts",
+      "contextFile": ".nogrep/domains/indexing-pipeline.md",
+      "watch": true
+    },
+    {
+      "glob": "scripts/validate.ts",
+      "contextFile": ".nogrep/domains/indexing-pipeline.md",
+      "watch": true
+    },
+    {
+      "glob": "scripts/types.ts",
+      "contextFile": ".nogrep/domains/indexing-pipeline.md",
+      "watch": true
+    },
+    {
+      "glob": "scripts/trim.ts",
+      "contextFile": ".nogrep/domains/analysis-engine.md",
+      "watch": true
+    },
+    {
+      "glob": "scripts/query.ts",
+      "contextFile": ".nogrep/domains/analysis-engine.md",
+      "watch": true
+    },
+    {
+      "glob": "plugins/nogrep/commands/*.md",
+      "contextFile": ".nogrep/domains/plugin-interface.md",
+      "watch": true
+    },
+    {
+      "glob": "scripts/settings.ts",
+      "contextFile": ".nogrep/domains/plugin-interface.md",
+      "watch": true
+    },
+    {
+      "glob": "tests/**",
+      "contextFile": ".nogrep/domains/test-suite.md",
+      "watch": true
+    }
+  ]
+}

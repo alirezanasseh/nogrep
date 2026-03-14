@@ -1,0 +1,306 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-03-14T23:50:30.517Z",
+  "commit": "bb8680f",
+  "stack": {
+    "primaryLanguage": "typescript",
+    "frameworks": [
+      "vitest",
+      "tsup"
+    ],
+    "architecture": "library"
+  },
+  "tags": {
+    "domain:indexing": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "layer:data": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "layer:infrastructure": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "tech:glob": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "tech:gray-matter": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "tech:js-yaml": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "concern:validation": [
+      ".nogrep/domains/indexing-pipeline.md",
+      ".nogrep/domains/test-suite.md"
+    ],
+    "type:module": [
+      ".nogrep/domains/indexing-pipeline.md",
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "domain:analysis": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "layer:business": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "concern:performance": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "domain:plugin": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "layer:presentation": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "type:config": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "type:integration": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "domain:testing": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "layer:cross-cutting": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "tech:vitest": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "type:test": [
+      ".nogrep/domains/test-suite.md"
+    ]
+  },
+  "keywords": {
+    "signals": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "write": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "validate": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "index": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "registry": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "context-node": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "frontmatter": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "SHA256": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "hash": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "freshness": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "stale": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "gray-matter": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "yaml": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "markdown": [
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
+    "trim": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "query": [
+      ".nogrep/domains/analysis-engine.md",
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "search": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "score": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "tag": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "keyword": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "taxonomy": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "signature": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "function-body": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "partial-match": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "ranked-result": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "plugin": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "command": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "init": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "update": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "status": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "on": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "off": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "settings": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "enabled": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "slash-command": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "test": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "vitest": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "fixture": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "integration": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "init-pipeline": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "django-project": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "nestjs-project": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "react-project": [
+      ".nogrep/domains/test-suite.md"
+    ]
+  },
+  "paths": {
+    "scripts/signals.ts": {
+      "context": ".nogrep/domains/indexing-pipeline.md",
+      "tags": [
+        "domain:indexing",
+        "layer:data",
+        "layer:infrastructure",
+        "tech:glob",
+        "tech:gray-matter",
+        "tech:js-yaml",
+        "concern:validation",
+        "type:module"
+      ]
+    },
+    "scripts/write.ts": {
+      "context": ".nogrep/domains/indexing-pipeline.md",
+      "tags": [
+        "domain:indexing",
+        "layer:data",
+        "layer:infrastructure",
+        "tech:glob",
+        "tech:gray-matter",
+        "tech:js-yaml",
+        "concern:validation",
+        "type:module"
+      ]
+    },
+    "scripts/validate.ts": {
+      "context": ".nogrep/domains/indexing-pipeline.md",
+      "tags": [
+        "domain:indexing",
+        "layer:data",
+        "layer:infrastructure",
+        "tech:glob",
+        "tech:gray-matter",
+        "tech:js-yaml",
+        "concern:validation",
+        "type:module"
+      ]
+    },
+    "scripts/types.ts": {
+      "context": ".nogrep/domains/indexing-pipeline.md",
+      "tags": [
+        "domain:indexing",
+        "layer:data",
+        "layer:infrastructure",
+        "tech:glob",
+        "tech:gray-matter",
+        "tech:js-yaml",
+        "concern:validation",
+        "type:module"
+      ]
+    },
+    "scripts/trim.ts": {
+      "context": ".nogrep/domains/analysis-engine.md",
+      "tags": [
+        "domain:analysis",
+        "layer:business",
+        "concern:performance",
+        "type:module"
+      ]
+    },
+    "scripts/query.ts": {
+      "context": ".nogrep/domains/analysis-engine.md",
+      "tags": [
+        "domain:analysis",
+        "layer:business",
+        "concern:performance",
+        "type:module"
+      ]
+    },
+    "plugins/nogrep/commands/*.md": {
+      "context": ".nogrep/domains/plugin-interface.md",
+      "tags": [
+        "domain:plugin",
+        "layer:presentation",
+        "type:config",
+        "type:integration"
+      ]
+    },
+    "scripts/settings.ts": {
+      "context": ".nogrep/domains/plugin-interface.md",
+      "tags": [
+        "domain:plugin",
+        "layer:presentation",
+        "type:config",
+        "type:integration"
+      ]
+    },
+    "tests/**": {
+      "context": ".nogrep/domains/test-suite.md",
+      "tags": [
+        "domain:testing",
+        "layer:cross-cutting",
+        "tech:vitest",
+        "concern:validation",
+        "type:test"
+      ]
+    }
+  }
+}

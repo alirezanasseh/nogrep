@@ -1,0 +1,8 @@
+{
+  "enabledPlugins": {
+    "nogrep@nogrep-marketplace": true
+  },
+  "nogrep": {
+    "enabled": true
+  }
+}
