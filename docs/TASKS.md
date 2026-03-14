@@ -155,18 +155,18 @@
 
 **Goal:** Staleness detection and incremental updates.
 
-- [ ] Create `scripts/validate.ts`
+- [x] Create `scripts/validate.ts`
   - `checkFreshness(node, projectRoot)` → `StaleResult`
   - Glob all files matching node's `src_paths`
   - Compute SHA256 of all file contents concatenated
   - Compare to `last_synced.src_hash` in frontmatter
   - CLI interface: `node validate.js [--format text|json]` → staleness report
-- [ ] Create `commands/update.md` slash command
+- [x] Create `commands/update.md` slash command
   - Guides Claude through: git diff → map to affected nodes → re-analyze → write updates
   - Preserves `## Manual Notes` section
-- [ ] Create `commands/status.md` slash command
+- [x] Create `commands/status.md` slash command
   - Runs `node "${CLAUDE_PLUGIN_ROOT}/dist/validate.js"` and shows node counts, freshness summary
-- [ ] Write `tests/validate.test.ts` — test staleness detection
+- [x] Write `tests/validate.test.ts` — test staleness detection
 
 ---
 
