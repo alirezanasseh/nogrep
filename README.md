@@ -8,16 +8,19 @@ A Claude Code plugin that gives AI agents a navigable index of any codebase, so 
 
 ## Install
 
-```bash
-claude plugin add github:alirezanasseh/nogrep
+Add the marketplace and install the plugin:
+
+```
+/plugin marketplace add alirezanasseh/nogrep
+/plugin install nogrep@nogrep-marketplace
 ```
 
-Or install from a local clone:
+For local development/testing:
 
 ```bash
 git clone https://github.com/alirezanasseh/nogrep.git
 cd nogrep && npm install && npm run build
-claude plugin add /path/to/nogrep
+claude --plugin-dir ./nogrep
 ```
 
 ## Quick start
