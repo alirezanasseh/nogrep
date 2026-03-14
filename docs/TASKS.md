@@ -117,7 +117,7 @@
 
 **Goal:** `/nogrep:init` orchestrates the full pipeline with Claude doing the AI work.
 
-- [ ] Create `commands/init.md`
+- [x] Create `commands/init.md`
   - Step 1: Run `node "${CLAUDE_PLUGIN_ROOT}/dist/signals.js" --root .` → collect signals
   - Step 2: Embed Phase 2 prompt — Claude analyzes signals, produces StackResult JSON
   - Step 3: For each domain cluster, embed Phase 3 prompt — Claude reads trimmed source (via `node "${CLAUDE_PLUGIN_ROOT}/dist/trim.js"`), produces NodeResult JSON
@@ -125,7 +125,7 @@
   - Step 5: Run `node "${CLAUDE_PLUGIN_ROOT}/dist/write.js"` with all results piped as JSON stdin
   - Step 6: Run `node "${CLAUDE_PLUGIN_ROOT}/dist/settings.js" --set enabled=true`
   - See docs/SPEC.md Section 13 for prompt templates
-- [ ] Test: run `/nogrep:init` in CC on a fixture project, inspect `.nogrep/` output
+- [x] Test: run `/nogrep:init` in CC on a fixture project, inspect `.nogrep/` output
 
 ---
 
