@@ -5,16 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "tsup",
-    "test": "vitest run",
-    "prepublish": "npm run build && npm test"
+    "test": "vitest run"
   },
-  "files": [
-    "dist/",
-    "commands/",
-    "hooks/",
-    "templates/",
-    "plugin.json"
-  ],
   "dependencies": {
     "glob": "^11.0.0",
     "gray-matter": "^4.0.3",

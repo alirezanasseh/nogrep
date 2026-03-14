@@ -193,16 +193,16 @@
 
 **Goal:** Ready for npm publish as CC plugin.
 
-- [ ] Write `README.md`:
+- [x] Write `README.md`:
   - What it does (one paragraph)
   - Install as CC plugin
   - Quick start (3 steps)
   - How it works (brief pipeline overview)
   - Available commands
   - FAQ
-- [ ] Add `files` field to `package.json` — ship `dist/`, `commands/`, `hooks/`, `templates/`, `plugin.json`
-- [ ] Verify `npm pack` produces correct bundle
-- [ ] Add `prepublish` script: `npm run build && npm test`
+- [x] Add `files` field to `package.json` — ship `dist/`, `commands/`, `hooks/`, `templates/`, `plugin.json`
+- [x] Verify `npm pack` produces correct bundle
+- [x] Add `prepublish` script: `npm run build && npm test`
 
 ---
 
