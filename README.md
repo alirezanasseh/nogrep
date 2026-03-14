@@ -8,12 +8,13 @@ A Claude Code plugin that gives AI agents a navigable index of any codebase, so 
 
 ## Install
 
-Add the marketplace and install the plugin:
+In Claude Code:
 
-```
-/plugin marketplace add alirezanasseh/nogrep
-/plugin install nogrep@nogrep-marketplace
-```
+1. Type `/plugin` and go to the `Marketplaces` tab
+2. Hit Enter on `+ Add Marketplace` and enter `alirezanasseh/nogrep`
+3. Wait for the plugin to appear, then hit Enter on `nogrep`
+4. Choose the installation scope (you, your team, etc.) and hit Enter
+5. Type `/reload-plugins` to activate
 
 For local development/testing:
 
