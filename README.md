@@ -15,7 +15,7 @@ claude plugin add nogrep
 Or install from source:
 
 ```bash
-git clone https://github.com/techtulp/nogrep.git
+git clone https://github.com/alirezanasseh/nogrep.git
 cd nogrep && npm install && npm run build
 claude plugin add /path/to/nogrep
 ```
