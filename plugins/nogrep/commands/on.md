@@ -3,7 +3,7 @@ Enable nogrep for this project.
 Run this command to enable nogrep:
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/dist/settings.js" --set enabled=true
+node "${CLAUDE_PLUGIN_ROOT}/scripts/settings.js" --set enabled=true
 ```
 
 Then check if the nogrep index exists:

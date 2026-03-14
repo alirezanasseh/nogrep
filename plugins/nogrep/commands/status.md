@@ -3,7 +3,7 @@ Show the current status of the nogrep index.
 Run the validation script:
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/dist/validate.js" --format text
+node "${CLAUDE_PLUGIN_ROOT}/scripts/validate.js" --format text
 ```
 
 If the command fails, tell the user:

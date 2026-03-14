@@ -5,7 +5,7 @@ Update stale nogrep context nodes based on recent changes.
 Run the validation script to find stale nodes:
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/dist/validate.js" --format json
+node "${CLAUDE_PLUGIN_ROOT}/scripts/validate.js" --format json
 ```
 
 If there are no stale nodes, tell the user:
@@ -36,7 +36,7 @@ For each stale node from Step 1:
 3. Use the trimming script to get signatures:
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/dist/trim.js" <source_file_paths>
+node "${CLAUDE_PLUGIN_ROOT}/scripts/trim.js" <source_file_paths>
 ```
 
 ## Step 4: Re-analyze each affected cluster
@@ -77,7 +77,7 @@ Rules:
 Combine all updated node results with any unchanged nodes. Pipe the full set as JSON to the writer:
 
 ```bash
-echo '<json_input>' | node "${CLAUDE_PLUGIN_ROOT}/dist/write.js" --root .
+echo '<json_input>' | node "${CLAUDE_PLUGIN_ROOT}/scripts/write.js" --root .
 ```
 
 The writer automatically preserves `## Manual Notes` sections from existing files.

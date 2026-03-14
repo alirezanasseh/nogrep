@@ -7,7 +7,7 @@ Initialize nogrep for this project. Follow these steps exactly in order.
 Run the signal collection script to gather project metadata:
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/dist/signals.js" --root .
+node "${CLAUDE_PLUGIN_ROOT}/scripts/signals.js" --root .
 ```
 
 Save the JSON output — you will use it in Step 2.
@@ -67,7 +67,7 @@ For **each** domain cluster identified in Step 2, do the following:
 Run the trim script to get signatures-only view of the cluster's source files. Pass all source files in the cluster's path as arguments:
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/dist/trim.js" <file1> <file2> ...
+node "${CLAUDE_PLUGIN_ROOT}/scripts/trim.js" <file1> <file2> ...
 ```
 
 To find the files in the cluster, use the cluster's `path` from Step 2 to list source files:
@@ -183,7 +183,7 @@ Now assemble the final input for the writer script. Create a JSON object combini
 Pipe the JSON to the writer script:
 
 ```bash
-echo '<YOUR_JSON>' | node "${CLAUDE_PLUGIN_ROOT}/dist/write.js" --root .
+echo '<YOUR_JSON>' | node "${CLAUDE_PLUGIN_ROOT}/scripts/write.js" --root .
 ```
 
 This will:
@@ -220,7 +220,7 @@ TAXONOMY_EOF
 ## Step 7 — Enable nogrep
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/dist/settings.js" --set enabled=true
+node "${CLAUDE_PLUGIN_ROOT}/scripts/settings.js" --set enabled=true
 ```
 
 ---

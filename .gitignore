@@ -1,5 +1,5 @@
 node_modules/
-plugins/nogrep/dist/
+plugins/nogrep/scripts/
 *.tsbuildinfo
 .DS_Store
 .claude/settings.local.json

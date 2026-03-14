@@ -7,7 +7,7 @@
     "url": "https://github.com/alirezanasseh/nogrep"
   },
   "type": "module",
-  "files": ["plugins/nogrep/dist", "plugins/nogrep/commands", "plugins/nogrep/hooks", "plugins/nogrep/templates", "plugins/nogrep/.claude-plugin", "scripts"],
+  "files": ["plugins/nogrep/scripts", "plugins/nogrep/commands", "plugins/nogrep/hooks", "plugins/nogrep/templates", "plugins/nogrep/.claude-plugin", "scripts"],
   "scripts": {
     "build": "tsup",
     "prepublishOnly": "npm run build",

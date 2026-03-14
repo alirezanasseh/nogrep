@@ -3,7 +3,7 @@ Disable nogrep for this project.
 Run this command to disable nogrep:
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/dist/settings.js" --set enabled=false
+node "${CLAUDE_PLUGIN_ROOT}/scripts/settings.js" --set enabled=false
 ```
 
 Tell the user:
