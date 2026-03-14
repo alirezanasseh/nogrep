@@ -35,7 +35,7 @@
 - [x] Create `commands/off.md` slash command
   - Runs `node "${CLAUDE_PLUGIN_ROOT}/dist/settings.js" --set enabled=false`
 - [x] Write `tests/settings.test.ts` — test merge logic, local precedence, file creation
-- [ ] Verify: `/nogrep:on` and `/nogrep:off` work in CC
+- [x] Verify: `/nogrep:on` and `/nogrep:off` work in CC
 
 ---
 

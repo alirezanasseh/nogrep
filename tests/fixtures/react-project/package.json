@@ -1,0 +1,11 @@
+{
+  "name": "react-fixture",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@tanstack/react-query": "^5.0.0",
+    "axios": "^1.6.0"
+  }
+}
