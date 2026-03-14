@@ -4,7 +4,7 @@ A Claude Code plugin that gives AI agents a navigable index of any codebase, so 
 
 ## What it does
 
-`nogrep` generates a structured `.nogrep/` directory with a reverse index and thin context nodes (markdown files). When Claude Code needs to find something, it reads 2 files instead of running 20 grep commands.
+`nogrep` generates a structured `.nogrep/` directory with a reverse index and thin context nodes (markdown files). When you need Claude Code to find something, run `/nogrep:query` — it reads 2 context files instead of running 20 grep commands.
 
 ## Install
 
@@ -20,7 +20,7 @@ In Claude Code:
 
 1. Open your project in Claude Code
 2. Run `/nogrep:init` — Claude analyzes your codebase and generates the index
-3. That's it. Hooks automatically inject context when Claude searches your code
+3. Ask questions with `/nogrep:query where is auth handled?`
 
 ## How it works
 
@@ -39,18 +39,10 @@ Scripts handle data collection and file I/O. Claude does all the analysis work d
 |---------|-------------|
 | `/nogrep:init` | Generate the full codebase index |
 | `/nogrep:update` | Incrementally update stale nodes |
-| `/nogrep:query <question>` | Manual index lookup |
+| `/nogrep:query <question>` | Query the index, read matched context files, and get an answer |
 | `/nogrep:status` | Show index health and freshness |
 | `/nogrep:on` | Enable nogrep |
 | `/nogrep:off` | Disable nogrep |
-
-## Hooks
-
-nogrep installs three Claude Code hooks:
-
-- **PreToolUse** — intercepts `grep`/`find`/`rg` commands and injects relevant context files
-- **UserPromptSubmit** — injects context for code navigation prompts
-- **SessionStart** — checks index freshness and warns if stale
 
 ## Output structure
 
