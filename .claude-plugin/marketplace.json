@@ -1,0 +1,19 @@
+{
+  "name": "nogrep-marketplace",
+  "owner": {
+    "name": "Alireza Nasseh"
+  },
+  "metadata": {
+    "description": "Navigable codebase index for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "nogrep",
+      "source": "./plugins/nogrep",
+      "description": "Navigable codebase index for Claude Code — stop grepping, start navigating",
+      "homepage": "https://github.com/alirezanasseh/nogrep",
+      "repository": "https://github.com/alirezanasseh/nogrep",
+      "keywords": ["codebase", "navigation", "index", "context"]
+    }
+  ]
+}

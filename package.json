@@ -1,0 +1,15 @@
+{
+  "name": "nogrep",
+  "version": "1.2.2",
+  "description": "Navigable codebase index for Claude Code — stop grepping, start navigating",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alirezanasseh/nogrep"
+  },
+  "type": "module",
+  "dependencies": {
+    "glob": "^11.0.0",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0"
+  }
+}
