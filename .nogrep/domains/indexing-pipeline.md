@@ -42,19 +42,23 @@ keywords:
   - gray-matter
   - yaml
   - markdown
+  - directory-tree
+  - manifest
+  - git-churn
+  - entry-point
 last_synced:
   commit: ""
   timestamp: "2026-03-15T00:00:00Z"
-  src_hash: ""
+  src_hash: sha256:1ac67bde5e77
 ---
 
 ## Purpose
-Collects project metadata (directory tree, manifests, git churn, file extensions), writes context node markdown files with YAML frontmatter, and validates index freshness by comparing source file hashes.
+Collects project metadata (directory tree, manifests, git churn, file extensions), writes context node markdown files with YAML frontmatter, builds reverse indexes, and validates index freshness by comparing source file SHA256 hashes.
 
 ## Public Surface
 
 ```
-collectSignals(root: string): Promise<SignalResult>
+collectSignals(root: string, options?): Promise<SignalResult>
 writeContextNodes(nodes, outputDir): Promise<void>
 buildIndex(nodes, stack): IndexJson
 buildRegistry(nodes): RegistryJson

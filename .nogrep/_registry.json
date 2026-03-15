@@ -1,6 +1,16 @@
 {
   "mappings": [
     {
+      "glob": "scripts/trim.ts",
+      "contextFile": ".nogrep/domains/analysis-engine.md",
+      "watch": true
+    },
+    {
+      "glob": "scripts/query.ts",
+      "contextFile": ".nogrep/domains/analysis-engine.md",
+      "watch": true
+    },
+    {
       "glob": "scripts/signals.ts",
       "contextFile": ".nogrep/domains/indexing-pipeline.md",
       "watch": true
@@ -18,16 +28,6 @@
     {
       "glob": "scripts/types.ts",
       "contextFile": ".nogrep/domains/indexing-pipeline.md",
-      "watch": true
-    },
-    {
-      "glob": "scripts/trim.ts",
-      "contextFile": ".nogrep/domains/analysis-engine.md",
-      "watch": true
-    },
-    {
-      "glob": "scripts/query.ts",
-      "contextFile": ".nogrep/domains/analysis-engine.md",
       "watch": true
     },
     {

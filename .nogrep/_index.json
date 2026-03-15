@@ -1,16 +1,28 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-03-14T23:50:30.517Z",
-  "commit": "bb8680f",
+  "generatedAt": "2026-03-15T00:11:03.220Z",
+  "commit": "f3943b0",
   "stack": {
     "primaryLanguage": "typescript",
     "frameworks": [
-      "vitest",
-      "tsup"
+      "claude-code-plugin"
     ],
     "architecture": "library"
   },
   "tags": {
+    "domain:analysis": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "layer:business": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "concern:performance": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "type:module": [
+      ".nogrep/domains/analysis-engine.md",
+      ".nogrep/domains/indexing-pipeline.md"
+    ],
     "domain:indexing": [
       ".nogrep/domains/indexing-pipeline.md"
     ],
@@ -32,19 +44,6 @@
     "concern:validation": [
       ".nogrep/domains/indexing-pipeline.md",
       ".nogrep/domains/test-suite.md"
-    ],
-    "type:module": [
-      ".nogrep/domains/indexing-pipeline.md",
-      ".nogrep/domains/analysis-engine.md"
-    ],
-    "domain:analysis": [
-      ".nogrep/domains/analysis-engine.md"
-    ],
-    "layer:business": [
-      ".nogrep/domains/analysis-engine.md"
-    ],
-    "concern:performance": [
-      ".nogrep/domains/analysis-engine.md"
     ],
     "domain:plugin": [
       ".nogrep/domains/plugin-interface.md"
@@ -72,6 +71,46 @@
     ]
   },
   "keywords": {
+    "trim": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "query": [
+      ".nogrep/domains/analysis-engine.md",
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "search": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "score": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "tag": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "keyword": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "taxonomy": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "signature": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "function-body": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "partial-match": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "ranked-result": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "extract-terms": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
+    "stop-words": [
+      ".nogrep/domains/analysis-engine.md"
+    ],
     "signals": [
       ".nogrep/domains/indexing-pipeline.md"
     ],
@@ -114,39 +153,17 @@
     "markdown": [
       ".nogrep/domains/indexing-pipeline.md"
     ],
-    "trim": [
-      ".nogrep/domains/analysis-engine.md"
+    "directory-tree": [
+      ".nogrep/domains/indexing-pipeline.md"
     ],
-    "query": [
-      ".nogrep/domains/analysis-engine.md",
-      ".nogrep/domains/plugin-interface.md"
+    "manifest": [
+      ".nogrep/domains/indexing-pipeline.md"
     ],
-    "search": [
-      ".nogrep/domains/analysis-engine.md"
+    "git-churn": [
+      ".nogrep/domains/indexing-pipeline.md"
     ],
-    "score": [
-      ".nogrep/domains/analysis-engine.md"
-    ],
-    "tag": [
-      ".nogrep/domains/analysis-engine.md"
-    ],
-    "keyword": [
-      ".nogrep/domains/analysis-engine.md"
-    ],
-    "taxonomy": [
-      ".nogrep/domains/analysis-engine.md"
-    ],
-    "signature": [
-      ".nogrep/domains/analysis-engine.md"
-    ],
-    "function-body": [
-      ".nogrep/domains/analysis-engine.md"
-    ],
-    "partial-match": [
-      ".nogrep/domains/analysis-engine.md"
-    ],
-    "ranked-result": [
-      ".nogrep/domains/analysis-engine.md"
+    "entry-point": [
+      ".nogrep/domains/indexing-pipeline.md"
     ],
     "plugin": [
       ".nogrep/domains/plugin-interface.md"
@@ -178,6 +195,12 @@
     "slash-command": [
       ".nogrep/domains/plugin-interface.md"
     ],
+    "settings-json": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
+    "settings-local": [
+      ".nogrep/domains/plugin-interface.md"
+    ],
     "test": [
       ".nogrep/domains/test-suite.md"
     ],
@@ -201,9 +224,36 @@
     ],
     "react-project": [
       ".nogrep/domains/test-suite.md"
+    ],
+    "unit-test": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "temp-directory": [
+      ".nogrep/domains/test-suite.md"
+    ],
+    "settings-test": [
+      ".nogrep/domains/test-suite.md"
     ]
   },
   "paths": {
+    "scripts/trim.ts": {
+      "context": ".nogrep/domains/analysis-engine.md",
+      "tags": [
+        "domain:analysis",
+        "layer:business",
+        "concern:performance",
+        "type:module"
+      ]
+    },
+    "scripts/query.ts": {
+      "context": ".nogrep/domains/analysis-engine.md",
+      "tags": [
+        "domain:analysis",
+        "layer:business",
+        "concern:performance",
+        "type:module"
+      ]
+    },
     "scripts/signals.ts": {
       "context": ".nogrep/domains/indexing-pipeline.md",
       "tags": [
@@ -253,24 +303,6 @@
         "tech:gray-matter",
         "tech:js-yaml",
         "concern:validation",
-        "type:module"
-      ]
-    },
-    "scripts/trim.ts": {
-      "context": ".nogrep/domains/analysis-engine.md",
-      "tags": [
-        "domain:analysis",
-        "layer:business",
-        "concern:performance",
-        "type:module"
-      ]
-    },
-    "scripts/query.ts": {
-      "context": ".nogrep/domains/analysis-engine.md",
-      "tags": [
-        "domain:analysis",
-        "layer:business",
-        "concern:performance",
         "type:module"
       ]
     },

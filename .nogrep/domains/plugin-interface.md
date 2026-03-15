@@ -33,14 +33,16 @@ keywords:
   - settings
   - enabled
   - slash-command
+  - settings-json
+  - settings-local
 last_synced:
   commit: ""
   timestamp: "2026-03-15T00:00:00Z"
-  src_hash: ""
+  src_hash: sha256:c613affd9e33
 ---
 
 ## Purpose
-Defines the Claude Code plugin structure with six slash commands (init, update, query, status, on, off) and manages the enabled/disabled state via .claude/settings.json.
+Defines the Claude Code plugin structure with six slash commands (init, update, query, status, on, off) and manages the enabled/disabled state via .claude/settings.json files.
 
 ## Public Surface
 

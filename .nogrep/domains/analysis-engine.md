@@ -31,10 +31,12 @@ keywords:
   - function-body
   - partial-match
   - ranked-result
+  - extract-terms
+  - stop-words
 last_synced:
   commit: ""
   timestamp: "2026-03-15T00:00:00Z"
-  src_hash: ""
+  src_hash: sha256:508272afb380
 ---
 
 ## Purpose
@@ -45,7 +47,7 @@ Provides language-aware source trimming that strips function bodies while keepin
 ```
 trimCluster(paths: string[], projectRoot: string): Promise<string>
 extractTerms(question: string, taxonomy: Taxonomy): {tags, keywords}
-resolveQuery(terms, index): RankedResult[]
+resolveQuery(terms, index, limit?): RankedResult[]
 ```
 
 ## Does Not Own
@@ -57,6 +59,7 @@ resolveQuery(terms, index): RankedResult[]
 - MAX_CLUSTER_LINES = 300 — trimmed output is capped per cluster
 - Query scoring: tags get +2, keywords get +1 with partial matching
 - query.ts reads _taxonomy.json to know valid tag values for extraction
+- extractTerms filters common stop words and checks multi-word tag matches (e.g. 'error handling' → 'error-handling')
 
 ## Manual Notes
 _Human annotations. Never overwritten by nogrep update._

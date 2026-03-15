@@ -30,19 +30,24 @@ keywords:
   - django-project
   - nestjs-project
   - react-project
+  - unit-test
+  - temp-directory
+  - settings-test
 last_synced:
   commit: ""
   timestamp: "2026-03-15T00:00:00Z"
-  src_hash: ""
+  src_hash: sha256:84736a639d23
 ---
 
 ## Purpose
-Comprehensive test coverage using vitest with test fixtures for Django, NestJS, and React projects. Includes unit tests for each script module and an integration test for the full init pipeline.
+Comprehensive test coverage using vitest with test fixtures for Django, NestJS, and React projects. Includes unit tests for each script module (signals, trim, query, writer, validate, settings) and an integration test for the full init pipeline.
 
 ## Gotchas
 - Test fixtures in tests/fixtures/ simulate real project structures (Django, NestJS, React)
 - init.test.ts is an integration test that simulates the full pipeline with hand-crafted analysis results
 - Tests use temp directories (mkdtemp) — cleanup via afterAll/afterEach
+- settings.test.ts tests both shared and local settings file paths
+- query.test.ts includes integration tests combining extractTerms + resolveQuery
 
 ## Manual Notes
 _Human annotations. Never overwritten by nogrep update._
